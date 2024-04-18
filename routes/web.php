@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PagesController::class, 'index'])->name('home');
+Route::get('/contacts', [PagesController::class, 'toContacts'])->name('contacts');
+Route::get('/about', [PagesController::class, 'toAbout'])->name('about');

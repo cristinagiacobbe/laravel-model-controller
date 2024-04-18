@@ -1,44 +1,32 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
 
-    <title>Movies database</title>
+@section('pageTitle', 'Home page')
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+<div class="container">
+    <h1>Movies page</h1>
+    <div class="row row-cols-4 ">
+        @foreach($movies as $movie)
 
-</head>
-
-<body>
-
-</body>
-<section>
-    <div class="container">
-        <h1>Movies page</h1>
-        <div class="row">
-            @foreach($movies as $movie)
-
-            <div class="col-4">
-                <div class="card">
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/200" alt="">
+                <div class="card-body">
                     <h4>{{$movie['title']}}</h4>
                 </div>
+
             </div>
-
-
-            @endforeach
         </div>
+
+
+        @endforeach
     </div>
-</section>
+</div>
 
 
 
 
 
-</html>
+@endsection

@@ -15,4 +15,12 @@ class PagesController extends Controller
 
         return view('welcome', compact('movies'));
     }
+    public function toContacts()
+    {
+        return view('contacts');
+    }
+    public function toAbout()
+    {
+        return view('about');
+    }
 }
