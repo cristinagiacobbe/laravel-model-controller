@@ -9,9 +9,16 @@ class PagesController extends Controller
 {
     public function index()
     {
-
         $movies = Movie::all();
-        /* dd($movies); */
+        /*  $movies = Movie::where('nationality', 'american',)->get(); */
+        /*  $movies = Movie::where('vote', '>', '9')->orderBy('vote', 'desc')->get(); */
+        /*  $filt_movies = $movies->whereBetween('vote', [8, 9]); */
+        /*  $query = Movie::all()->sortBy('vote'); */
+
+
+
+
+        /* dd($best_movies); */
 
         return view('welcome', compact('movies'));
     }
@@ -22,5 +29,17 @@ class PagesController extends Controller
     public function toAbout()
     {
         return view('about');
+    }
+    public function toBest()
+    {
+        $best_movies = Movie::all()->sortBy(['vote', 'desc'],)->split(3);
+
+        return view('best', compact('best_movies'));
+    }
+    public function toWorst()
+    {
+        $worst_movies = Movie::all()->sortBy(['vote', 'asc'],)->split(3);
+
+        return view('worst', compact('worst_movies'));
     }
 }

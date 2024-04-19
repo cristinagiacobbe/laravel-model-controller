@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/contacts', [PagesController::class, 'toContacts'])->name('contacts');
 Route::get('/about', [PagesController::class, 'toAbout'])->name('about');
+Route::get('/best', [PagesController::class, 'toBest'])->name('best');
+Route::get('/worst', [PagesController::class, 'toWorst'])->name('worst');
