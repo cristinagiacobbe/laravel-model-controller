@@ -33,12 +33,13 @@ class PagesController extends Controller
     public function toBest()
     {
         $best_movies = Movie::orderBy('vote', 'desc')->limit(3)->get();
+        /*  dd($best_movies); */
 
         return view('best', compact('best_movies'));
     }
     public function toWorst()
     {
-        $worst_movies = Movie::orderBy('vote', 'asc')->get();
+        $worst_movies = Movie::orderBy('vote', 'asc')->limit(3)->get();
 
         return view('worst', compact('worst_movies'));
     }
