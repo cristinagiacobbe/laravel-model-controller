@@ -32,13 +32,13 @@ class PagesController extends Controller
     }
     public function toBest()
     {
-        $best_movies = Movie::all()->sortBy(['vote', 'desc'],)->split(3);
+        $best_movies = Movie::orderBy('vote', 'desc')->limit(3)->get();
 
         return view('best', compact('best_movies'));
     }
     public function toWorst()
     {
-        $worst_movies = Movie::all()->sortBy(['vote', 'asc'],)->split(3);
+        $worst_movies = Movie::orderBy('vote', 'asc')->get();
 
         return view('worst', compact('worst_movies'));
     }
